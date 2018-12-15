@@ -1,0 +1,8 @@
+bin/
+lib/
+include/
+.idea/
+.Python
+*.pyc
+.venv
+venv/
