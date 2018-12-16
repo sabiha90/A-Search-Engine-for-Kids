@@ -38,15 +38,15 @@ Locate your elastic search directory and run this
 `./usr/local/bin/elasticsearch`
 
 ## TroubleShooting:
-If any error try this
-failed to obtain node locks, tried [[/usr/local/var/lib/elasticsearch
+If any error while starting elastic search 
+example: failed to obtain node locks, tried [[/usr/local/var/lib/elasticsearch ..
 
-ps aux | grep 'java'
-kill -9 <PID>
+`ps aux | grep 'java'
+kill -9 <PID>`
 
 Unable to locate python 3.7 on Pycharm 
 locate anaconda if installed
-> which anaconda
+` which anaconda`
 Copy the path for the folder into pycharm and locate python 3.7 or similar version
 
 
