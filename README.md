@@ -49,4 +49,5 @@ locate anaconda if installed
 ` which anaconda`
 Copy the path for the folder into pycharm and locate python 3.7 or similar version
 
-
+PyCharm run/debug configuration will look like this
+![image](https://user-images.githubusercontent.com/25397038/50049102-1f7c2b80-0091-11e9-8369-b13087f1346d.png)
