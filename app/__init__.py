@@ -1,7 +1,7 @@
 from flask import Flask, render_template, send_from_directory, request
 import os
 
-from app.index.elastic_search_helper import init_index, load_documents, query_index
+from app.index.elastic_search_helper import init_index, load_documents, query_index, load_blacklist
 
 app = Flask(__name__)
 
@@ -30,6 +30,7 @@ def perform_search():
 def create_documents():
     init_index()
     load_documents()
+    load_blacklist()
     return render_template('index.html')
 
 if __name__ == '__main__':
