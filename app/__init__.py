@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route('/index')
 @app.route('/index/')
 def render_static():
-    return render_template('index.html')
+    return render_template('index.html', index=True)
 
 
 @app.route('/favicon.ico')

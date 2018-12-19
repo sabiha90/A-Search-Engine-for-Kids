@@ -52,7 +52,9 @@
         </div>
         <!--end of col-->
     </div>
-    {% if (not result_data|length) %}
+    {% if index==True %}
+
+    {% elif (not result_data|length) %}
         "Sorry, no results found"
     {% elif result_data == "Sorry, no results found" %}
         "Sorry, no results found"
