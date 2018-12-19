@@ -3,7 +3,11 @@ import csv
 import requests
 import itertools
 
+from flask import render_template
+
 blackListed = set()
+
+
 def init_index():
     delete_index()
     index_json = '{' \
@@ -18,28 +22,31 @@ def init_index():
                  '}'
     print(requests.put('http://localhost:9200/test_search_engine', data=index_json, headers={'content-type':'application/json'}).content)
 
+
 def load_blacklist():
     documents_file = open('../data/blacklisted_wordlist.csv', 'r')
     with open('../data/blacklisted_wordlist.csv', newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for row in spamreader:
             badword = row[0].encode('latin-1', 'ignore').decode('utf-8', 'ignore')
-            # print(badword)
             blackListed.add(badword)
 
 
 def delete_index():
     print(requests.delete('http://localhost:9200/test_search_engine').content)
 
+
 def query_index(query):
     query_string = '{"sort" : [ { "_score" : "desc"} ],' \
                    ' "query": {"bool" : {"must" : {"query_string" : {"query" : "'+ query + '"}}}}}'
     response = requests.post('http://localhost:9200/test_search_engine/_search/?size=20', data=query_string, headers={'content-type': 'application/json'})
     hits = json.loads(response.content)['hits']['hits']
-    if query in blackListed:
-        return "Sorry Not Found"
+    if query.lower() in blackListed:
+        return 'Sorry, no results found'
+        # return render_template('index.html', no_results='Sorry, no results found')
 
     return rankResults(hits)
+
 
 def resolveTopicName(topic_id):
     topics = {
@@ -50,6 +57,7 @@ def resolveTopicName(topic_id):
     }
     return topics.get(int(topic_id), "Topic")
 
+
 def weightMultiplier(topic_id):
     topics = {
         0: 2,
@@ -59,6 +67,7 @@ def weightMultiplier(topic_id):
     }
     return topics.get(int(topic_id), "Topic")
 
+
 def rankResults(hits):
     result = []
     for hit in hits:
@@ -66,13 +75,13 @@ def rankResults(hits):
         label = hit['_source']['label']
         content = hit['_source']['content']
         topic = hit['_source']['topic']
-        topicName = resolveTopicName(topic)
+        topic_name = resolveTopicName(topic)
         score = hit['_score'] * weightMultiplier(topic)
-        model = {'id': id, 'label': label, 'topic': topicName, 'content': content, 'score': score}
+        model = {'id': id, 'label': label, 'topic': topic_name, 'content': content, 'score': score}
         result.append(model)
-
     ranked = sorted(result, key=lambda k: k.get('score', 0), reverse=True)
     return ranked
+
 
 def prioritizeResults(result):
     #       Academics, Life, Entertainment, Social
