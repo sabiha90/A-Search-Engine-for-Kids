@@ -34,25 +34,19 @@ def query_index(query):
 
 def resolveTopicName(topic_id):
     topics = {
-        0: 'Hobbies',
-        1: 'Knowledge',
-        2: 'Gaming',
-        3: 'Academics',
-        4: 'Health',
-        5: 'Entertainment',
-        6: 'Food'
+        0: 'Entertainment',
+        1: 'Academics',
+        2: 'Life',
+        3: 'Social'
     }
     return topics.get(int(topic_id), "Topic")
 
 def weightMultiplier(topic_id):
     topics = {
-        0: 4,
-        1: 6,
-        2: 1,
-        3: 7,
-        4: 5,
-        5: 2,
-        6: 3
+        0: 2,
+        1: 4,
+        2: 3,
+        3: 1
     }
     return topics.get(int(topic_id), "Topic")
 
@@ -72,8 +66,8 @@ def rankResults(hits):
     return ranked
 
 def prioritizeResults(result):
-    #       Academics, Knowledge, Health, Hobbies, Food, Entertainment, Gaming
-    priority = {'3',    '1',       '4',     '0',    '6',     '5',        '2'}
+    #       Academics, Life, Entertainment, Social
+    priority = {'1',    '2',       '0',     '3'}
     p_result = []
     for p in priority:
         p_result.append(result.get(p, []))
@@ -81,13 +75,13 @@ def prioritizeResults(result):
 
 
 def load_documents():
-    documents_file = open('../data/topic_data.csv', 'r')
-    with open('../data/topic_data.csv', newline='') as csvfile:
+    documents_file = open('../data/topic_classified_original_data.csv', 'r')
+    with open('../data/topic_classified_original_data.csv', newline='', encoding='utf-8') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
         i = 0
         for row in spamreader:
             print(len(row), ' ', i)
-            content = row[1].encode('latin-1', 'ignore').decode('utf-8', 'ignore')
+            content = row[1].replace("'", '')
             document = '{'
             document = document + '"id": "' + row[0] + '", "content": "' + content + '", "label":"' + row[2] + \
                        '", "topic": "' + row[3] + '"'
@@ -95,6 +89,4 @@ def load_documents():
             id = row[0]
             response = requests.put('http://localhost:9200/test_search_engine/_doc/'+id, data=document, headers={'content-type':'application/json'})
             print(response.content)
-            # if i == 100:
-            #     break
             i = i+1
