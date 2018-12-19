@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <script src="/static/jquery.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="/static/DataTables/datatables.min.css"/>
+    <script type="text/javascript" src="/static/DataTables/datatables.min.js"></script>
+    <script src="/static/search_engine.js"></script>
     <title>Search Engine for Kids</title>
 </head>
 <body>
@@ -21,9 +24,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <!--<li class="nav-item active">-->
-                    <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-                <!--</li>-->
                 <li class="nav-item">
                     <a class="nav-link" href="/create_document">Load Documents</a>
                 </li>
@@ -44,7 +44,7 @@
                     </div>
                     <!--end of col-->
                     <div class="col-auto">
-                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                        <button class="btn btn-lg btn-success" type="submit" id="searchTerm">Search</button>
                     </div>
                     <!--end of col-->
                 </div>
@@ -53,21 +53,39 @@
         <!--end of col-->
     </div>
 
-    <div class="row justify-content-center">
-        {{ result_data }}
-    </div>
-</div>
+    <table id="search_results_table" class="table table-striped table-bordered bulk_action">
+        <thead>
+            <tr>
+                <th>Document ID</th>
+                <th>Label</th>
+                <th>Topic</th>
+                <th>Content</th>
+                <th>Relevance Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for value in result_data %}
+                <tr>
+                    <td>
+                        {{ value['id'] }}
+                    </td>
+                    <td>
+                        {{ value['label'] }}
+                    </td>
+                    <td>
+                        {{ value['topic'] }}
+                    </td>
+                    <td>
+                        {{ value['content'] }}
+                    </td>
+                    <td>
+                        {{ value['score'] }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
