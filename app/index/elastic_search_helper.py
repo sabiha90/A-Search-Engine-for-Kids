@@ -6,7 +6,16 @@ import itertools
 blackListed = set()
 def init_index():
     delete_index()
-    index_json = '{"settings":{"index" : {"number_of_shards": 1, "number_of_replicas": 1}}}'
+    index_json = '{' \
+                     '"settings":' \
+                        '{' \
+                            '"index" : ' \
+                            '{' \
+                                '"number_of_shards": 1, ' \
+                                '"number_of_replicas": 1' \
+                            '}' \
+                        '}' \
+                 '}'
     print(requests.put('http://localhost:9200/test_search_engine', data=index_json, headers={'content-type':'application/json'}).content)
 
 def load_blacklist():
@@ -25,7 +34,7 @@ def delete_index():
 def query_index(query):
     query_string = '{"sort" : [ { "_score" : "desc"} ],' \
                    ' "query": {"bool" : {"must" : {"query_string" : {"query" : "'+ query + '"}}}}}'
-    response = requests.post('http://localhost:9200/test_search_engine/_search', data=query_string, headers={'content-type': 'application/json'})
+    response = requests.post('http://localhost:9200/test_search_engine/_search/?size=20', data=query_string, headers={'content-type': 'application/json'})
     hits = json.loads(response.content)['hits']['hits']
     if query in blackListed:
         return "Sorry Not Found"
