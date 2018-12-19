@@ -22,6 +22,7 @@ def favicon():
 def perform_search():
     query = request.args.get('query')
     results = query_index(query)
+    print(str(len(results)) + " results found.")
     print(str(results))
     return render_template('index.html', result_data=results)
 
