@@ -2,6 +2,16 @@
 
 A Kid Friendly Search engine which will display results for enhancement of kids' knowledge. The search engine eliminates all kinds of harmful content inappropriate for kids. We are using Neural Network and will rank the results using TF IDF,by tweaking it with our own formula.
 
+The project consists of the following main steps:
+<ol>
+   <li><a href="#head1"> Scraping data from the web </a>
+   <li><a href="#head2"> Filtering objectionable content</a>
+   <li><a href="#head3"> Identifying topics</a>
+   <li><a href="#head4"> Query parsing using ElasticSearch</a>
+   <li><a href="#head5"> Ranking the results based on priority of the topics </a>
+</ol>
+
+<p id="head1"> <h2> Scraping the data from the web </h2></p>
 ## Project set up guide
 Required Software/ Packages:
    - Python 3.6 or above
