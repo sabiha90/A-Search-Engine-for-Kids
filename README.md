@@ -144,18 +144,25 @@ brew services start elasticsearch
   http://localhost:5000
   ```
 </ol>
-## TroubleShooting:
-If any error while starting elastic search 
-example: failed to obtain node locks, tried [[/usr/local/var/lib/elasticsearch ..
 
+
+## TroubleShooting:
+
+<br>
+If any error while starting elastic search
+<ol>
+<li> "failed to obtain node locks, tried [[/usr/local/var/lib/elasticsearch .."
+Enter
+   
 `ps aux | grep 'java'
 kill -9 <PID>`
 
-Unable to locate python 3.7 on Pycharm 
+<li>Unable to locate python 3.7 on Pycharm 
 locate anaconda if installed
+
 ` which anaconda`
 Copy the path for the folder into pycharm and locate python 3.7 or similar version
-
+</ol>
 PyCharm run/debug configuration will look like this
 ![image](https://user-images.githubusercontent.com/25397038/50049102-1f7c2b80-0091-11e9-8369-b13087f1346d.png)
 
