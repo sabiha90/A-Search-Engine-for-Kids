@@ -1,3 +1,9 @@
+"""
+Authors:
+Supritha Amudhu
+Richa Nahar
+"""
+
 import os, json
 import csv
 import requests

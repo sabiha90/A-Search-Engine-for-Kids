@@ -1,3 +1,9 @@
+"""
+Authors:
+Supritha Amudhu
+Richa Nahar
+"""
+
 from flask import Flask, render_template, send_from_directory, request
 import os
 from jinja2 import Environment, PackageLoader, select_autoescape
