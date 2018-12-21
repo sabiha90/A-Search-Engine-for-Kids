@@ -11,6 +11,7 @@ from app.index.elastic_search_helper import init_index, load_documents, query_in
 
 app = Flask(__name__)
 
+
 @app.route('/')
 @app.route('/index')
 @app.route('/index/')
@@ -20,7 +21,7 @@ def render_static():
 
 @app.route('/favicon.ico')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
+    return send_from_directory(os.path.join(app.root_path, '../static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
@@ -39,6 +40,7 @@ def create_documents():
     init_index()
     load_documents()
     return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run()
