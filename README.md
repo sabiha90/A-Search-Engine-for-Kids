@@ -91,26 +91,27 @@ Note: Since the data set is huge (149mb), it will take a long period of time to 
 <ol>
    <li>Create virtual environment:
       
-      `virtualenv -p python3 venv`
+      ```virtualenv -p python3 venv```
 
 <li>Download elastic search (anywhere other than project folder):
    
-`brew install elasticsearch`
+```brew install elasticsearch```
 
 <li> Set up virtual environment inside the app/ folder
 
-`virtualenv -p python3 venv`
-`source venv/bin/activate`
+```virtualenv -p python3 venv```
+```source venv/bin/activate```
+
 On execution of the last command you will see “venv” in the terminal line
 <li> Open a second terminal window and start elastic search process in background 
 
-`brew services start elasticsearch`
+```brew services start elasticsearch```
 <li>Go to this directory, " ./usr/local/bin your elastic search directory and run 
 
-`./elasticsearch` or `.\elasticsearch`
+```./elasticsearch` or `.\elasticsearch```
 <li> Once elasticsearch is up and running, go to app/index/ and run,
    
-   `python elastic_search_helper.py`
+   ```python elastic_search_helper.py```
    
   This will start the flask app, which can be viewed in the browser using this url: 
   ``http://localhost:5000``
