@@ -103,11 +103,11 @@ Note: Since the data set is huge (149mb), it will take a long period of time to 
 <p id="head6"><h2>Running ElasticSearch</h2>
 
 <ol>
-   <li>Create virtual environment:
-      
-      ```
-      virtualenv -p python3 venv
-      ```
+<li>Create virtual environment:
+
+```
+virtualenv -p python3 venv
+```
 
 <li>Download elastic search (anywhere other than project folder):
    
