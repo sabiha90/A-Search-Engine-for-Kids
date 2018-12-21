@@ -18,13 +18,33 @@ The project consists of the following main steps:
 
 <p id="head1"> <h2> General Instructions to run the project </h2></p>
 Clone the repository into your local machine by typing the command
-
+<br>
 `git clone`
+<br>
 To run the project, you need to have a running version of Python 3.6(not 3.7) and pip.
+<br>
 To install the dependencies execute,
+<br>
 `pip install requirements.txt`
-
+<br>
 This command will install all the required dependencies.
+
+<p id="head2"><h2> Scraping the data from the web </h2>
+<br>
+Scraping the data requires installed version of Selenium and BeautifulSoup. The libraries are present in the requirements.txt file.
+<br>
+For Data Scraping - 
+<ol>
+   <li>Run Medium_Scrapper_using_selenium.py
+   <li>Run WebScraper.py
+   <li>Run Medium_Search_URL_Scrapper.py
+   <li>Run WebScraper.py
+   <li>Combine the datasets and name them - final_data.csv
+</ol>
+
+Or you can download the data from this link: 
+https://drive.google.com/file/d/1BrAguUjU6yU4In8iWx4-i37MBcK_gmqi/view
+
 
 ## Project set up guide
 Required Software/ Packages:
