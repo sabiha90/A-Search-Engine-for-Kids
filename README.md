@@ -22,7 +22,7 @@ Clone the repository into your local machine by typing the command
 <br>
 
 
-```git clone```
+`git clone`
 
 <br>
 To run the project, you need to have a running version of Python 3.6(not 3.7) and pip.
@@ -50,16 +50,23 @@ For Data Scraping -
 
 Or you can download the data from this link: 
 https://drive.google.com/file/d/1BrAguUjU6yU4In8iWx4-i37MBcK_gmqi/view
-<p id="head3"><h2>ssigning labels to the training data using pattern.en</h2>
+<p id="head3"><h2>Assigning labels to the training data using pattern.en</h2>
 <br>
 <ol>
-<li>Create a new Virtual Environment using the command - 
-   `virtualenv -p python3 venv`
+<li>Create a new Virtual Environment using the command
+   
+   ```virtualenv -p python3 venv```
+   
 <li>A new folder called venv gets created.
-<li>To source into the Virtual Environment, type the command - `source venv/bin/activate`
+<li>To source into the Virtual Environment, type the command
+   
+   ```source venv/bin/activate```
+   
 <li>A (venv) will get prepended to the command line. 
 <li>Navigate to the Project folder in the path - /A-Search-Engine-for-Kids/helper_scripts/class_labelling_using_pattern.en
-<li>Run the command - python data_content_labelling.py
+<li>Run the command
+   
+   ```python data_content_labelling.py```
 <li>This script was created initially to classify data as Positive, Strongly Positive, Negative, Strongly Negative. The input CSV file taken here is a basic data set with limited records of 1280 rows.
 <li>The output of this script is the same input data set with another column for sentiment score appended.
    
