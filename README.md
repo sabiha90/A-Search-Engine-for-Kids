@@ -21,7 +21,9 @@ Clone the repository into your local machine by typing the command
 <br>
 
 
-`git clone`
+```
+git clone repository_url
+```
 
 <br>
 To run the project, you need to have a running version of Python 3.6(not 3.7) and pip.
@@ -29,7 +31,9 @@ To run the project, you need to have a running version of Python 3.6(not 3.7) an
 To install the dependencies execute,
 <br>
 
-`pip install requirements.txt`
+```
+pip install requirements.txt
+```
 
 <br>
 This command will install all the required dependencies.
@@ -56,18 +60,24 @@ Output file - file_data_output.csv
 <ol>
 <li>Create a new Virtual Environment using the command
  
-   ```virtualenv -p python3 venv```
+   ```
+   virtualenv -p python3 venv
+   ```
    
 <li>A new folder called venv gets created.
 <li>To source into the Virtual Environment, type the command
    
-   ```source venv/bin/activate```
+   ```
+   source venv/bin/activate
+   ```
    
 <li>A (venv) will get prepended to the command line. 
 <li>Navigate to the Project folder in the path - /A-Search-Engine-for-Kids/helper_scripts/class_labelling_using_pattern.en
 <li>Run the command
    
-   ```python data_content_labelling.py```
+   ```
+   python data_content_labelling.py
+   ```
 <li>This script was created initially to classify data as Positive, Strongly Positive, Negative, Strongly Negative. The input CSV file taken here is a basic data set with limited records of 1280 rows.
 <li>The output of this script is the same input data set with another column for sentiment score appended.
 </ol>
@@ -76,7 +86,9 @@ Output file - file_data_output.csv
 <ol>
 <li>Once the final_data.csv file is retrieved, the file should be saved in the same directory as the file named, web_content_classification.ipynb file. The file should be executed by entering the command,
 
-```jupyter notebook```
+```
+jupyter notebook
+```
 <li> This will open the notebook and all the cells can be executed by using Shift+Enter. Or via Cells> Run All.
 </ol>
 <br>
@@ -93,30 +105,44 @@ Note: Since the data set is huge (149mb), it will take a long period of time to 
 <ol>
    <li>Create virtual environment:
       
-      ```virtualenv -p python3 venv```
+      ```
+      virtualenv -p python3 venv
+      ```
 
 <li>Download elastic search (anywhere other than project folder):
    
-```brew install elasticsearch```
+```
+brew install elasticsearch
+```
 
 <li> Set up virtual environment inside the app/ folder
 
-```virtualenv -p python3 venv```
-```source venv/bin/activate```
+```
+virtualenv -p python3 venv
+source venv/bin/activate
+```
 
 On execution of the last command you will see “venv” in the terminal line
 <li> Open a second terminal window and start elastic search process in background 
 
-```brew services start elasticsearch```
+```
+brew services start elasticsearch
+```
 <li>Go to this directory, " ./usr/local/bin your elastic search directory and run 
 
-```./elasticsearch` or `.\elasticsearch```
+```
+./elasticsearch` or `.\elasticsearch
+```
 <li> Once elasticsearch is up and running, go to app/index/ and run,
    
-   ```python elastic_search_helper.py```
+   ```
+   python elastic_search_helper.py
+   ```
    
   This will start the flask app, which can be viewed in the browser using this url: 
-  ``http://localhost:5000``
+  ```
+  http://localhost:5000
+  ```
 </ol>
 ## TroubleShooting:
 If any error while starting elastic search 
