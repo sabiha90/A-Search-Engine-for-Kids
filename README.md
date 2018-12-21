@@ -19,13 +19,17 @@ The project consists of the following main steps:
 <p id="head1"> <h2> General Instructions to run the project </h2></p>
 Clone the repository into your local machine by typing the command
 <br>
+
 `git clone`
+
 <br>
 To run the project, you need to have a running version of Python 3.6(not 3.7) and pip.
 <br>
 To install the dependencies execute,
 <br>
+
 `pip install requirements.txt`
+
 <br>
 This command will install all the required dependencies.
 
@@ -45,7 +49,9 @@ For Data Scraping -
 Or you can download the data from this link: 
 https://drive.google.com/file/d/1BrAguUjU6yU4In8iWx4-i37MBcK_gmqi/view
 
-
+<p id="head3"><h2>Filtering objectionable content</h2>
+<br>
+Once the final_data.csv file is retrieved, the 
 ## Project set up guide
 Required Software/ Packages:
    - Python 3.6 or above
