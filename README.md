@@ -11,8 +11,7 @@ The project consists of the following main steps:
    <li><a href="#head3"> Assigning labels to the training data using pattern.en</a>
    <li><a href="#head4"> Filtering objectionable content</a>
    <li><a href="#head5"> Identifying topics</a>
-   <li><a href="#head6"> Query parsing using ElasticSearch</a>
-   <li><a href="#head7"> Ranking the results based on priority of the topics </a>
+   <li><a href="#head6"> Running ElasticSearch</a>
 </ol>
 
 
@@ -72,51 +71,50 @@ https://drive.google.com/file/d/1BrAguUjU6yU4In8iWx4-i37MBcK_gmqi/view
    
    
 <p id="head4"><h2>Filtering objectionable content</h2>
-<br>
-Once the final_data.csv file is retrieved, the file should be saved in the same directory as the file named, CodeBase-Sabiha.ipynb file. The file should be executed by entering the command,
+<ol>
+<li>Once the final_data.csv file is retrieved, the file should be saved in the same directory as the file named, web_content_classification.ipynb file. The file should be executed by entering the command,
 
-<br>
 ```jupyter notebook```
-<br>
-This will open the notebook and all the cells can be executed by using Shift+Enter. Or via Cells> Run All.
+<li> This will open the notebook and all the cells can be executed by using Shift+Enter. Or via Cells> Run All.
+</ol>
 <br>
 Note: Since the data set is huge (149mb), it will take a long period of time to see the results.
 <br>
-## Project set up guide
-Required Software/ Packages:
-   - Python 3.6 or above
-   - Virtual environment
-   - Flask
-   - Elastic Search
- 
-> Install python 3.6 or 3.7
+<p id="head5"><h2>Identifying topics</h2>
+<ol>
+<li> To execute this file, load the classification3.ipynb and topic modelling.ipynb as ipynb files in the jupyter notebook and execute it by using Shift+Enter or Cells> Run All.
 
-> Create virtual environmen:
-`virtualenv -p python3 venv`
+<li>This file takes as input the output of the Filtering objectionable content step. The input file is "whole_data.csv" which is found in the same directory as the classification.ipynb file.
+</ol>
+<p id="head6"><h2>Running ElasticSearch</h2>
 
-> Download elastic search (anywhere other than project folder):
+<ol>
+   <li>Create virtual environment:
+      
+      `virtualenv -p python3 venv`
+
+<li>Download elastic search (anywhere other than project folder):
+   
 `brew install elasticsearch`
 
-Go to Project Folder
-> Install flask
-`pip3 install flask`
+<li> Set up virtual environment inside the app/ folder
 
-> Set up virtual environment
 `virtualenv -p python3 venv`
 `source venv/bin/activate`
 On execution of the last command you will see “venv” in the terminal line
+<li> Open a second terminal window and start elastic search process in background 
 
-> Install all dependencies using pip
-`pip install -r requirements.txt`
-
-### Open a second terminal window:
-> Start elastic search process in background 
 `brew services start elasticsearch`
+<li>Go to this directory, " ./usr/local/bin your elastic search directory and run 
 
-> starting elastic search 
-Locate your elastic search directory and run this
-`./usr/local/bin/elasticsearch`
-
+`./elasticsearch` or `.\elasticsearch`
+<li> Once elasticsearch is up and running, go to app/index/ and run,
+   
+   `python elastic_search_helper.py`
+   
+  This will start the flask app, which can be viewed in the browser using this url: 
+  ``http://localhost:5000``
+   
 ## TroubleShooting:
 If any error while starting elastic search 
 example: failed to obtain node locks, tried [[/usr/local/var/lib/elasticsearch ..
