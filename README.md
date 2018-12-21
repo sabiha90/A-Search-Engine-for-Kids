@@ -8,10 +8,11 @@ The project consists of the following main steps:
 <ol>
    <li><a href="#head1"> General instructions to run the project</a>
    <li><a href="#head2"> Scraping data from the web </a>
-   <li><a href="#head3"> Filtering objectionable content</a>
-   <li><a href="#head4"> Identifying topics</a>
-   <li><a href="#head5"> Query parsing using ElasticSearch</a>
-   <li><a href="#head6"> Ranking the results based on priority of the topics </a>
+   <li><a href="#head3"> Assigning labels to the training data using pattern.en</a>
+   <li><a href="#head4"> Filtering objectionable content</a>
+   <li><a href="#head5"> Identifying topics</a>
+   <li><a href="#head6"> Query parsing using ElasticSearch</a>
+   <li><a href="#head7"> Ranking the results based on priority of the topics </a>
 </ol>
 
 
@@ -20,7 +21,8 @@ The project consists of the following main steps:
 Clone the repository into your local machine by typing the command
 <br>
 
-`git clone`
+
+```git clone```
 
 <br>
 To run the project, you need to have a running version of Python 3.6(not 3.7) and pip.
@@ -48,10 +50,31 @@ For Data Scraping -
 
 Or you can download the data from this link: 
 https://drive.google.com/file/d/1BrAguUjU6yU4In8iWx4-i37MBcK_gmqi/view
-
-<p id="head3"><h2>Filtering objectionable content</h2>
+<p id="head3"><h2>ssigning labels to the training data using pattern.en</h2>
 <br>
-Once the final_data.csv file is retrieved, the 
+<ol>
+<li>Create a new Virtual Environment using the command - 
+   `virtualenv -p python3 venv`
+<li>A new folder called venv gets created.
+<li>To source into the Virtual Environment, type the command - `source venv/bin/activate`
+<li>A (venv) will get prepended to the command line. 
+<li>Navigate to the Project folder in the path - /A-Search-Engine-for-Kids/helper_scripts/class_labelling_using_pattern.en
+<li>Run the command - python data_content_labelling.py
+<li>This script was created initially to classify data as Positive, Strongly Positive, Negative, Strongly Negative. The input CSV file taken here is a basic data set with limited records of 1280 rows.
+<li>The output of this script is the same input data set with another column for sentiment score appended.
+   
+   
+<p id="head4"><h2>Filtering objectionable content</h2>
+<br>
+Once the final_data.csv file is retrieved, the file should be saved in the same directory as the file named, CodeBase-Sabiha.ipynb file. The file should be executed by entering the command,
+
+<br>
+```jupyter notebook```
+<br>
+This will open the notebook and all the cells can be executed by using Shift+Enter. Or via Cells> Run All.
+<br>
+Note: Since the data set is huge (149mb), it will take a long period of time to see the results.
+<br>
 ## Project set up guide
 Required Software/ Packages:
    - Python 3.6 or above
