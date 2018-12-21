@@ -165,5 +165,5 @@ PyCharm run/debug configuration will look like this
 <li>Girish Tiwale
 <li>Richa Nahar
 <li>Sabiha Barlaskar
-<li> SUpritha Amudhu
+<li> Supritha Amudhu
  
