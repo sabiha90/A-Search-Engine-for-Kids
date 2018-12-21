@@ -2,16 +2,30 @@
 
 A Kid Friendly Search engine which will display results for enhancement of kids' knowledge. The search engine eliminates all kinds of harmful content inappropriate for kids. We are using Neural Network and will rank the results using TF IDF,by tweaking it with our own formula.
 
+
+
 The project consists of the following main steps:
 <ol>
-   <li><a href="#head1"> Scraping data from the web </a>
-   <li><a href="#head2"> Filtering objectionable content</a>
-   <li><a href="#head3"> Identifying topics</a>
-   <li><a href="#head4"> Query parsing using ElasticSearch</a>
-   <li><a href="#head5"> Ranking the results based on priority of the topics </a>
+   <li><a href="#head1"> General instructions to run the project</a>
+   <li><a href="#head2"> Scraping data from the web </a>
+   <li><a href="#head3"> Filtering objectionable content</a>
+   <li><a href="#head4"> Identifying topics</a>
+   <li><a href="#head5"> Query parsing using ElasticSearch</a>
+   <li><a href="#head6"> Ranking the results based on priority of the topics </a>
 </ol>
 
-<p id="head1"> <h2> Scraping the data from the web </h2></p>
+
+
+<p id="head1"> <h2> General Instructions to run the project </h2></p>
+Clone the repository into your local machine by typing the command
+
+`git clone`
+To run the project, you need to have a running version of Python 3.6(not 3.7) and pip.
+To install the dependencies execute,
+`pip install requirements.txt`
+
+This command will install all the required dependencies.
+
 ## Project set up guide
 Required Software/ Packages:
    - Python 3.6 or above
