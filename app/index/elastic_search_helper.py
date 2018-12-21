@@ -3,11 +3,12 @@ import csv
 import requests
 import itertools
 
-from flask import render_template
-
 blackListed = set()
 
 
+"""
+Worked on by Supritha - Method to delete the existing Elasticsearch index and create a new index 
+"""
 def init_index():
     delete_index()
     index_json = '{' \
@@ -23,6 +24,9 @@ def init_index():
     print(requests.put('http://localhost:9200/test_search_engine', data=index_json, headers={'content-type':'application/json'}).content)
 
 
+"""
+Worked on by Supritha - Method to load all the blacklisted words to be validated against when a search query is launched
+"""
 def load_blacklist():
     documents_file = open('../data/blacklisted_wordlist.csv', 'r')
     with open('../data/blacklisted_wordlist.csv', newline='') as csvfile:
@@ -32,10 +36,16 @@ def load_blacklist():
             blackListed.add(badword)
 
 
+"""
+Worked on by Supritha - Method to delete the existing index. This method is called everytime a new index is created
+"""
 def delete_index():
     print(requests.delete('http://localhost:9200/test_search_engine').content)
 
 
+"""
+Worked on by Supritha - Method that is accessed when results for a search query is fetched using Elasticsearch
+"""
 def query_index(query):
     query_string = '{"sort" : [ { "_score" : "desc"} ],' \
                    ' "query": {"bool" : {"must" : {"query_string" : {"query" : "'+ query + '"}}}}}'
@@ -43,8 +53,6 @@ def query_index(query):
     hits = json.loads(response.content)['hits']['hits']
     if query.lower() in blackListed:
         return 'Sorry, no results found'
-        # return render_template('index.html', no_results='Sorry, no results found')
-
     return rankResults(hits)
 
 
@@ -92,6 +100,9 @@ def prioritizeResults(result):
     return list(itertools.chain.from_iterable(p_result))
 
 
+"""
+Worked on by Supritha - Method that loads an input csv file, parses its columns and indexes every single column data for each record
+"""
 def load_documents():
     documents_file = open('../data/topic_classified_original_data.csv', 'r')
     with open('../data/topic_classified_original_data.csv', newline='', encoding='utf-8') as csvfile:
