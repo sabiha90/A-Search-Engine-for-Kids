@@ -68,7 +68,7 @@ https://drive.google.com/file/d/1BrAguUjU6yU4In8iWx4-i37MBcK_gmqi/view
    ```python data_content_labelling.py```
 <li>This script was created initially to classify data as Positive, Strongly Positive, Negative, Strongly Negative. The input CSV file taken here is a basic data set with limited records of 1280 rows.
 <li>The output of this script is the same input data set with another column for sentiment score appended.
-   
+</ol>
    
 <p id="head4"><h2>Filtering objectionable content</h2>
 <ol>
@@ -114,7 +114,7 @@ On execution of the last command you will see “venv” in the terminal line
    
   This will start the flask app, which can be viewed in the browser using this url: 
   ``http://localhost:5000``
-   
+</ol>
 ## TroubleShooting:
 If any error while starting elastic search 
 example: failed to obtain node locks, tried [[/usr/local/var/lib/elasticsearch ..
