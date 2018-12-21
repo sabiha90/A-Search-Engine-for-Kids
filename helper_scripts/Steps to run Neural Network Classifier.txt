@@ -1,0 +1,14 @@
+Steps to run the project:
+
+Python version 3
+Libraries required:
+
+1. pip install pandas
+2. pip install numpy
+3. pip install scikitlearn
+4. pip install keras
+5. pip install nltk
+
+Download the word embeddings from this link: 
+
+https://s3-us-west-1.amazonaws.com/fasttext-vectors/wiki-news-300d-1M.vec.zip
