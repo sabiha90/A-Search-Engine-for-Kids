@@ -55,8 +55,8 @@ Or you can download the data from this link:
 https://drive.google.com/file/d/1BrAguUjU6yU4In8iWx4-i37MBcK_gmqi/view
 <p id="head3"><h2>Assigning labels to the training data using pattern.en</h2>
 <br>
-Input file - final_data.csv
-Output file - file_data_output.csv
+<li>Input file - final_data.csv
+<li>Output file - file_data_output.csv
 <ol>
 <li>Create a new Virtual Environment using the command
  
